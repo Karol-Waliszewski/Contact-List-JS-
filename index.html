@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Kontaktow</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <nav class="nav">
+
+        <h1 class="nav__logo">L O G O</h1>
+
+        <ul class="nav__list">
+
+            <li><button class="nav__button">PRZYJACIELE</button></li>
+            <li><button class="nav__button">RODZINA</button></li>
+            <li><button class="nav__button">PRACA</button></li>
+            <li><button class="nav__button">USŁUGI</button></li>
+            <li><button class="nav__button nav__button--important">ULUBIONE</button></li>
+
+        </ul>
+    </nav>
+
+
+    <section class="contacts">
+        <header class="contacts__header">
+            <h2>PRZYJACIELE</h2>
+        </header>
+
+        <ul class="contacts__list">
+
+        </ul>
+
+    </section>
+
+    <div class="information">
+        <p>Najedź na przycisk zmiany strony aby zmienić stronę w trakcię przeciągania</p>
+    </div>
+    <button class="contacts__add">+</button>
+
+    <div class="modal hidden">
+        <form class="form">
+
+            <label class="form__label" for='name'>Imię</label>
+            <input type="text" name="name" id="name" class="form__name form__input">
+
+            <label class="form__label" for='surrname'>Nazwisko</label>
+            <input type="text" name="surrname" id="surrname" class="form__surrname form__input">
+
+            <label class="form__label" for='phone'>Numer Telefonu</label>
+            <input type="text" name="phone" id="phone" class="form__phone form__input" maxlength="9">
+
+            <label class="form__label" for='email'>E-mail</label>
+            <input type="email" name="email" id="email" class="form__email form__input">
+            <div class="form__wrapper--button">
+                <input type="reset" value="Anuluj" class="form__button form__button--cancel">
+
+                <input type="submit" value="+ Dodaj" class="form__button form__button--submit">
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/0e62ceb33b.js"></script>
+    <script src="js/newScript.js"></script>
+</body>
+
+</html>

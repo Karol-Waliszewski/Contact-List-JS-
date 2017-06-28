@@ -1,0 +1,226 @@
+@import 'Mixins';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin-ext');
+$sand: #F5C396;
+$sea: #395C6B;
+$brown: #1D2126;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav {
+    flex-basis: 20%;
+    padding: 5%;
+    background-color: $sand;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include e('logo') {
+        margin-bottom: 40%;
+        color: $brown;
+        font-size: 3.5rem;
+    }
+    @include e('list') {
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    @include e('button') {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: $brown;
+        cursor: pointer;
+        @include m('important') {
+            font-weight: 700;
+        }
+    }
+}
+
+.contacts {
+    flex-basis: 80%;
+    background-color: $sea;
+    color: $sand;
+    @include e('header') {
+        padding: 5%;
+        height: 15%;
+        @include centerFlex();
+        align-items: flex-start;
+        font-size: 4rem;
+    }
+    @include e('button') {
+        border: none;
+        background: none;
+        color: $sand;
+        margin: 0 4px;
+        font-size: 20px;
+        cursor: pointer;
+        @include m('move') {
+            cursor: move;
+        }
+    }
+    @include e('list') {
+        padding: 2% 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        @include m('over'){
+            background-color: darken($sea,20%);
+        }
+    }
+    @include e('item') {
+        height: 6vh;
+        margin: 1vh 0;
+        width: 45%;
+        min-width: 400px;
+        overflow: hidden;
+        transition: 400ms;
+        @include e('header') {
+            width: 100%;
+            height: 6vh;
+            padding: 0 10px;
+            background-color: lighten($sea, 10%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        @include e('content') {
+            width: 100%;
+            height: 18vh;
+            padding: 10px;
+            @include centerFlex();
+            background-color: lighten($sea, 15%);
+        }
+    }
+    @include e('label') {
+        @include font-size(22,
+        $base: 16);
+        margin: 1rem 0;
+    }
+    @include e('link') {
+        text-decoration: none;
+        color: $brown;
+        @include font-size(25,
+        $base: 16);
+        &:hover {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+    }
+    @include e('add') {
+        @include box(50px);
+        @include centerFlex();
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: none;
+        border-radius: 50%;
+        border: 3px solid $sand;
+        font-size: 40px;
+        color: $sand;
+        cursor: pointer;
+        &:hover {
+            border-width: 4.5px;
+        }
+    }
+}
+
+.information {
+    position: fixed;
+    top: 50px;
+    right: 30px;
+    @include box(25%,
+    15%);
+    background-color: darken($sea, 10%);
+    padding: 0 3%;
+    @include font-size(20,
+    $base: 16);
+    @include centerFlex();
+    color: $sand;
+}
+
+.active {
+    height: 24vh;
+}
+
+.modal {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    transition: 300ms opacity;
+    @include centerFlex();
+}
+
+.hidden {
+    opacity: 0;
+    top: -200vh;
+    left: -200%;
+}
+
+.form {
+    width: 30%;
+    height: 55vh;
+    background-color: $sand;
+    padding: 1.5% 2%;
+    @include centerFlex();
+    align-items: flex-start;
+    justify-content: space-around;
+    @include e('label') {
+        display: block;
+        font-size: 1.6vw;
+        width: 100%;
+    }
+    @include e('input') {
+        width: 100%;
+        color: $brown;
+        height: 9%;
+        font-size: 1vw;
+    }
+    @include e('wrapper') {
+        @include m('button') {
+            width: 100%;
+            @include centerFlex();
+            justify-content: space-between;
+            flex-direction: row;
+        }
+    }
+    @include e('button') {
+        padding: 0.5em 1rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        box-sizing: border-box;
+        font-size: 1.2vw;
+        transition: 250ms;
+        @include m('cancel') {
+            border: 3px solid #c0392b;
+            color: #c0392b;
+            &:hover {
+                color: white;
+                background: #c0392b;
+            }
+        }
+        @include m('submit') {
+            background: $brown;
+            color: white;
+            &:hover {
+                background: darken($brown, 15%);
+            }
+        }
+    }
+}
